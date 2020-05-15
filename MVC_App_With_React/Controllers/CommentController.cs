@@ -33,8 +33,8 @@ namespace MVC_App_With_React.Controllers
             };
         }
 
-        [Route("api/comments")]
         [HttpGet]
+        [Route("api/comments")]
         public IHttpActionResult Comments()
         {
             return Ok(_comments);

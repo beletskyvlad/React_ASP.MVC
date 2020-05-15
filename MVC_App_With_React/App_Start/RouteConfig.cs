@@ -7,8 +7,7 @@ namespace MVC_App_With_React
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            // custom route for the view where the React app will be rendered
             routes.MapRoute(
                 name: "react",
                 url: "react/{*pathInfo}",

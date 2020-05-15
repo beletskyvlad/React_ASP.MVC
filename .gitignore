@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 /MVC_App_With_React/ReactApp/dist
+/MVC_App_With_React/Properties/PublishProfiles

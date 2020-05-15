@@ -1,4 +1,4 @@
-﻿import { Remarkable } from 'remarkable';
+﻿import { Remarkable } from "remarkable";
 import React, { Component } from "react";
 
 export class CommentList extends Component {

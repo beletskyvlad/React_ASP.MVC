@@ -1,7 +1,6 @@
-﻿
-@model IEnumerable<MVC_App_With_React.Models.CommentModel>
+﻿@model IEnumerable<MVC_App_With_React.Models.CommentModel>
 @{
-    ViewBag.Title = "react";
+    ViewBag.Title = "React";
     Layout = null;
 }
 <html>
@@ -9,12 +8,12 @@
     <title>Hello React</title>
 </head>
 <body>
-<div id="content"></div>
-<!-- Uncomment to enable server-side rendering -->
-@*@Html.React("AppComponent", new { })
-@Html.ReactInitJavaScript()*@
-    
-<!-- Does not need to rendered in case of SSR -->
-@Scripts.Render("~/ReactApp/dist/app.js") 
+    <div id="content"></div>
+    <!-- Uncomment to enable server-side rendering -->
+    @*@Html.React("AppComponent", new { })
+        @Html.ReactInitJavaScript()*@
+
+    <!-- Does not need to be rendered in case of SSR -->
+    @Scripts.Render("~/ReactApp/dist/app.js") <!-- The app bundle should be placed here -->
 </body>
 </html>

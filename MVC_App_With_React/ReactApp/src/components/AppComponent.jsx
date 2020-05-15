@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { CommentBox } from './CommentBox.jsx';
 import {
   BrowserRouter,
@@ -8,15 +7,15 @@ import {
   Link
 } from "react-router-dom"
 
-function Home() {
+export function Home() {
   return <h2>Home</h2>;
 }
 
-function About() {
+export function About() {
   return <h2>About</h2>;
 }
 
-function Users() {
+export function Users() {
   return <h2>Users</h2>;
 }
 
@@ -69,17 +68,3 @@ export class AppComponent extends React.Component {
     );
   }
 }
-
-//#region SSR
-/* Uncomment to enable server-side rendering using ReactJS.NET with custom bundle*/
-/* import ReactDOMServer from 'react-dom/server';
-
-global.React = React;
-global.ReactDOM = ReactDOM;
-global.ReactDOMServer = ReactDOMServer;
-global.AppComponent = AppComponent; */
-//#endregion SSR
-
-// remove the following when using SSR to render the app
-const wrapper = document.getElementById("content");
-wrapper && ReactDOM.render(<AppComponent />, wrapper);
