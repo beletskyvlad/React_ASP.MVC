@@ -1,4 +1,4 @@
-﻿import { CommentList, CommentForm } from './CommentComponents.jsx';
+﻿import { CommentList, CommentForm } from "./CommentComponents.jsx";
 import React, { Component } from "react";
 
 export class CommentBox extends Component {
@@ -32,12 +32,11 @@ export class CommentBox extends Component {
         const newComments = comments.concat([comment]);
         this.setState({ data: newComments });
 
-        const data = new FormData();
-        data.append('Author', comment.Author);
-        data.append('Text', comment.Text);
+        const data = JSON.stringify({ Author: comment.Author, Text: comment.Text });
 
         const xhr = new XMLHttpRequest();
         xhr.open('post', this.props.submitUrl, true);
+        xhr.setRequestHeader("Content-type", "application/json");
         xhr.onload = () => this.loadCommentsFromServer();
         xhr.send(data);
     }

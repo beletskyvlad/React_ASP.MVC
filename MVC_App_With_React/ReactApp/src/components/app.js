@@ -21,8 +21,8 @@ function Users() {
 }
 
 const urls = {
-  commentsUrl: 'http://localhost:64222/comments',
-  submitUrl: 'http://localhost:64222/comments/new'
+  commentsUrl: 'http://localhost:64222/api/comments',
+  submitUrl: 'http://localhost:64222/api/comments/new'
 }
 
 export class AppComponent extends React.Component {

@@ -10,15 +10,9 @@ namespace MVC_App_With_React
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Comments",
-                url: "comments",
-                defaults: new { controller = "React", action = "Comments" }
-            );
-
-            routes.MapRoute(
-                name: "NewComment",
-                url: "comments/new",
-                defaults: new { controller = "React", action = "AddComment" }
+                name: "react",
+                url: "react/{*pathInfo}",
+                defaults: new { controller = "React", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
