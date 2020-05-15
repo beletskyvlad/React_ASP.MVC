@@ -12,7 +12,7 @@ export class CommentBox extends Component {
         this.state.data || this.loadCommentsFromServer();
         window.setInterval(
             () => this.loadCommentsFromServer(),
-            this.props.pollInterval,
+            this.props.pollInterval
         );
     }
 
@@ -52,11 +52,3 @@ export class CommentBox extends Component {
         );
     }
 }
-
-import ReactDOMServer from 'react-dom/server';
-import ReactDOM from 'react-dom';
-
-global.React = React;
-global.ReactDOM = ReactDOM;
-global.ReactDOMServer = ReactDOMServer;
-global.CommentBox = CommentBox;

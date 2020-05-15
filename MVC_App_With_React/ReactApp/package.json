@@ -21,6 +21,8 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "remarkable": "^2.0.0"
   }
 }

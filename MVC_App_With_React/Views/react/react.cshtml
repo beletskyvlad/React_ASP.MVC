@@ -9,15 +9,12 @@
     <title>Hello React</title>
 </head>
 <body>
-<div id="content"></div>  
-@Html.React("CommentBox", new
-  {
-    initialData = Model,
-    url = Url.Action("Comments"),
-    submitUrl = Url.Action("AddComment"),
-    pollInterval = 2000
-  })
-
-@Html.ReactInitJavaScript()
+<div id="content"></div>
+<!-- Uncomment to enable server-side rendering -->
+@*@Html.React("AppComponent", new { })
+@Html.ReactInitJavaScript()*@
+    
+<!-- Does not need to rendered in case of SSR -->
+@Scripts.Render("~/ReactApp/dist/app.js") 
 </body>
 </html>
