@@ -1,0 +1,23 @@
+﻿
+@model IEnumerable<MVC_App_With_React.Models.CommentModel>
+@{
+    ViewBag.Title = "react";
+    Layout = null;
+}
+<html>
+<head>
+    <title>Hello React</title>
+</head>
+<body>
+<div id="content"></div>  
+@Html.React("CommentBox", new
+  {
+    initialData = Model,
+    url = Url.Action("Comments"),
+    submitUrl = Url.Action("AddComment"),
+    pollInterval = 2000
+  })
+
+@Html.ReactInitJavaScript()
+</body>
+</html>
