@@ -28,11 +28,6 @@ namespace MVC_App_With_React
 
             #region Uncomment to enable SSR
             //ReactSiteConfiguration.Configuration
-            //    //.AddScript("~/Scripts/remarkable.js")
-            //    .AddScript("~/ReactApp/src/components/CommentComponents.jsx")
-            //    .AddScript("~/ReactApp/src/components/App.jsx");
-
-            //ReactSiteConfiguration.Configuration
             //    .SetReuseJavaScriptEngines(true)
             //    .SetLoadBabel(false)
             //    .SetLoadReact(false) // react is included in the server-side bundle
