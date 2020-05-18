@@ -1,10 +1,12 @@
 import React from 'react';
 import { CommentBox } from './CommentBox.jsx';
 import {
-  BrowserRouter,
   Switch,
   Route,
-  Link
+  Link,
+  StaticRouter,
+  BrowserRouter,
+  Redirect
 } from "react-router-dom"
 
 export function Home() {
@@ -27,12 +29,12 @@ const urls = {
 export class AppComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.routerBasename = "/react"; // url segment for the view where the app is rendered
+    this.routerBasename = "/react";
   }
   
   render () {
-    return (
-      <BrowserRouter basename={this.routerBasename}>
+    const app = (
+      <div>
         <nav>
           <ul>
             <li>
@@ -49,8 +51,12 @@ export class AppComponent extends React.Component {
             </li>
           </ul>
         </nav>
-
         <Switch>
+        <Route
+              exact
+              path="/"
+              render={() => <Redirect to="/home" />}
+          />
           <Route path="/about">
             <About />
           </Route>
@@ -60,11 +66,25 @@ export class AppComponent extends React.Component {
           <Route path="/comments">
             <CommentBox initialData={null} url={urls.commentsUrl} submitUrl={urls.submitUrl} pollInterval={2000} />
           </Route>
-          <Route path="/">
+          <Route path="/home">
             <Home />
           </Route>
         </Switch>
-      </BrowserRouter>
+      </div>
     );
+
+  if (typeof window === 'undefined') {
+    return (
+        <StaticRouter
+            context={this.props.context}
+            location={this.props.location}
+            basename={this.routerBasename}
+        >
+            {app}
+        </StaticRouter>
+    );
+  } else {
+    return (<BrowserRouter basename={this.routerBasename}>{app}</BrowserRouter>);
+  }
   }
 }

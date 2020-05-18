@@ -26,20 +26,17 @@ namespace MVC_App_With_React
             //    .SetLoadBabel(false)
             //    .AddScriptWithoutTransform("~/Scripts/bundle.server.js")
 
+            JsEngineSwitcher.Current.DefaultEngineName = V8JsEngine.EngineName;
+            JsEngineSwitcher.Current.EngineFactories.AddV8();
+
             #region Uncomment to enable SSR
-            //ReactSiteConfiguration.Configuration
-            //    //.AddScript("~/Scripts/remarkable.js")
-            //    .AddScript("~/ReactApp/src/components/CommentComponents.jsx")
-            //    .AddScript("~/ReactApp/src/components/App.jsx");
+            ReactSiteConfiguration.Configuration
+                .SetReuseJavaScriptEngines(true)
+                .SetLoadBabel(false)
+                .SetLoadReact(false) // react is included in the server-side bundle
+                .AddScriptWithoutTransform("~/ReactApp/dist/app.js");
 
-            //ReactSiteConfiguration.Configuration
-            //    .SetReuseJavaScriptEngines(true)
-            //    .SetLoadBabel(false)
-            //    .SetLoadReact(false) // react is included in the server-side bundle
-            //    .AddScriptWithoutTransform("~/ReactApp/dist/app.js");
 
-            //JsEngineSwitcher.Current.DefaultEngineName = V8JsEngine.EngineName;
-            //JsEngineSwitcher.Current.EngineFactories.AddV8();
             #endregion Uncomment to enable SSR
         }
     }
