@@ -9,11 +9,6 @@
 </head>
 <body>
     <div id="content"></div>
-    <!-- Uncomment to enable server-side rendering -->
-    @*@Html.React("AppComponent", new { })
-        @Html.ReactInitJavaScript()*@
-
-    <!-- Does not need to be rendered in case of SSR -->
     @Scripts.Render("~/ReactApp/dist/app.js") <!-- The app bundle should be placed here -->
 </body>
 </html>

@@ -10,10 +10,14 @@ export class CommentBox extends Component {
 
     componentDidMount() {
         this.state.data || this.loadCommentsFromServer();
-        window.setInterval(
+        this.intervalId = window.setInterval(
             () => this.loadCommentsFromServer(),
             this.props.pollInterval
         );
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.intervalId);
     }
 
     loadCommentsFromServer() {
