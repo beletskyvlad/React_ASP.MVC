@@ -29,15 +29,11 @@ namespace MVC_App_With_React
             JsEngineSwitcher.Current.DefaultEngineName = V8JsEngine.EngineName;
             JsEngineSwitcher.Current.EngineFactories.AddV8();
 
-            #region Uncomment to enable SSR
             ReactSiteConfiguration.Configuration
                 .SetReuseJavaScriptEngines(true)
                 .SetLoadBabel(false)
                 .SetLoadReact(false) // react is included in the server-side bundle
                 .AddScriptWithoutTransform("~/ReactApp/dist/app.js");
-
-
-            #endregion Uncomment to enable SSR
         }
     }
 }
